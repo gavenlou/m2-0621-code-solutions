@@ -15,7 +15,10 @@ Bank.prototype.openAccount = function (holder, balance) {
 }
 
 Bank.prototype.getAccount = function (number) {
-  if (number > this.accounts.length || isNaN(number) || !Number.isInteger(number)) return null;
+  if (number > this.accounts.length ||
+     isNaN(number) ||
+     !Number.isInteger(number) ||
+     number === 0) return null;
   return this.accounts[number - 1];
 }
 
