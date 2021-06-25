@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1400px;
+  margin: auto;
+  text-align: center;
+}
+
+.row {
+  height: 400px;
+  display: flex;
+  justify-content: center;
+}
+
+.pictures {
+  height: 100%;
+}
+
+.arrows {
+  font-size: 40px;
+  height: 100%;
+  padding-top: 180px;
+}
+
+.arrows:hover {
+  cursor: pointer;
+}
