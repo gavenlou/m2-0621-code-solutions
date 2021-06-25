@@ -21,8 +21,15 @@ var currentImage = document.querySelector('img');
 var filledDot = "fas fa-solid fa-circle";
 var empDot = "far fa-circle";
 
-function nextImage() {
-  if (next <= 4) {
+function nextImage(number) {
+  if (number) {
+    images[next - 1].dot.className = empDot;
+    next = number;
+    nextImage();
+    clearInterval(timer);
+    timer = setInterval(nextImage, 3000);
+  }
+  else if (next <= 4) {
     currentImage.src = images[next].image;
     images[next].dot.className = filledDot;
     if (next > 0) {
@@ -56,3 +63,9 @@ function forward() {
 }
 
 rightArrow.addEventListener('click', forward);
+
+dot0.addEventListener('click', function () { nextImage(5) });
+dot1.addEventListener('click', function () { nextImage(1) });
+dot2.addEventListener('click', function () { nextImage(2) });
+dot3.addEventListener('click', function () { nextImage(3) });
+dot4.addEventListener('click', function () { nextImage(4) });
