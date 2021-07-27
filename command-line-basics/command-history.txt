@@ -1,0 +1,270 @@
+    1  git config --global --list
+    2  git config --global user.name "Gaven Loughridge"
+    3  git config --global user.email "gavenlou@gmail.com"
+    4  git config --global --list
+    5  cd repos
+    6  l
+    7  git clone git@github.com:gavenlou/driving-game.git
+    8  ls
+    9  git clone git@github.com:gavenlou/m2-0621-code-solutions.git
+   10  ls
+   11  cd repos
+   12  cd m2-0621-code-solutions/
+   13  git checkout -b http-messages
+   14  code .
+   15  http https://example.com
+   16  http --verboses https://example.com
+   17  http --verbose https://example.com
+   18  http --body GET https://jsonplaceholder.typicode.com/users > users.json
+   19  http --body GET https://example.com > index.html
+   20  git add http-messages/
+   21  git commit -m 'Completed http-messages'
+   22  git push origin http-messages 
+   23  git checkout master
+   24  git checkout -b javascript-ajax
+   25  code .
+   26  git add javascript-ajax/
+   27  git commit -m 'Completed javascript-ajax'
+   28  git push origin javascript-ajax 
+   29  git checkout master
+   30  cd
+   31  cd repos
+   32  cd driving-game/
+   33  code .
+   34  npm ci
+   35  git checkout -b Issue-6-Coin/Nitro
+   36  git add index.html 
+   37  git add main.js 
+   38  git add style.css 
+   39  git commit -m 'Added coin pickups/bad counter. #6'
+   40  git push origin Issue-6-Coin/Nitro 
+   41  git commit --amend 'Added coin pickups/bad counter. #11'
+   42  git commit --amend
+   43  git --amend -m 'Added coin pickups and counter. #11'
+   44  git commit --amend -m 'Added coin pickups and counter. #11'
+   45  git push origin Issue-6-Coin/Nitro 
+   46  git push --force origin Issue-6-Coin/Nitro 
+   47  git checkout master
+   48  http https://palabras-aleatorias-public-api.herokuapp.com/random
+   49  cd repos
+   50  git clone git@github.com:gavenlou/ajax-project.git
+   51  cd ajax-project/
+   52  npm ci
+   53  cd repos
+   54  cd ajax-project/
+   55  git checkout -b Issue-1-Receive-Word
+   56  code .
+   57  git add css/
+   58  git add index.html 
+   59  git add css/
+   60  git add index.html 
+   61  git commit -m 'Added basic html page. #1'
+   62  git push origin
+   63  git push origin Issue-1-Receive-Word 
+   64  code .
+   65  git add css/
+   66  git add index.html 
+   67  git add js/
+   68  git commit -m 'Added flashcard ID, XML request, and text content change for the random word. #1'
+   69  git add js/
+   70  git commit -m 'Added flashcard ID, XML request, and text content change for the random word. #1'
+   71  git push origin Issue-1-Receive-Word 
+   72  git checkout master
+   73  git pull origin
+   74  cd repos
+   75  cd ajax-project/
+   76  code .
+   77  git add css/
+   78  git add index.html 
+   79  git add js/
+   80  git commit -m 'Input box & XML request added. #2'
+   81  git add js/main.js 
+   82  git commit -m 'Input box & XML request added. #2'
+   83  git add js/
+   84  git commit -m 'Input box & XML request added. #2'
+   85  git push origin
+   86  git push origin Issue-2-View-English 
+   87  git add css/
+   88  git add js/
+   89  git commit -m 'Checks user input for correct answer. #2'
+   90  git push origin Issue-2-View-English 
+   91  git add css/
+   92  git add index.html 
+   93  git add js/
+   94  git commit -m 'Added input color change based on answer, and button to show English translation. #2'
+   95  git push origin Issue-2-View-English 
+   96  git add js/main.js 
+   97  git commit -m 'Removed a ',' from the end of 'Show Answer' translation. #2'
+   98  git commit -m 'Removed a comma from the end of 'Show Answer' translation. #2'
+   99  git commit -m 'Removed a comma from the end of English translations. #2'
+  100  git push origin Issue-2-View-English 
+  101  git add js/main.js 
+  102  git commit -m 'Made the Spanish word stay capitalized upon clicking Show Answer. #2'
+  103  git push origin Issue-2-View-English 
+  104  git checkout master
+  105  git pull origin
+  106  cd repos
+  107  cd ajax-project/
+  108  code .
+  109  npm install requirejs
+  110  npm audit
+  111  code .
+  112  npm uninstall requirejs
+  113  git pull origin
+  114  cd repos
+  115  cd ajax-project/
+  116  code .
+  117  git add js/main.js 
+  118  git commit -m 'Unleaked API key :/'
+  119  git push origin
+  120  cd repos
+  121  cd ajax-project/
+  122  git checkout -b Issue-3-View-Def/Image
+  123  code .
+  124  cd
+  125  cd repos
+  126  cd m2-0621-code-solutions/
+  127  git checkout -b es6-const-let
+  128  code .
+  129  git add es6-const-let/
+  130  git commit -m 'Completed es6-const-let'
+  131  git push origin
+  132  git push origin es6-const-let 
+  133  git checkout master
+  134  git checkout -b es6-template-literals
+  135  code .
+  136  git add es6-template-literals/
+  137  git commit -m 'Completed es6-template-literals'
+  138  git push es6-template-literals/
+  139  git push origin es6-template-literals/
+  140  git push origin es6-template-literals
+  141  git checkout master
+  142  git checkout es6-const-let 
+  143  code .
+  144  git add es6-const-let/index.html 
+  145  git commit -m 'Replaced let for const'
+  146  git push origin es6-const-let 
+  147  git checkout es6-template-literals 
+  148  code .
+  149  git checkout master
+  150  git pull origin
+  151  git checkout -b es6-destructuring
+  152  code .
+  153  git add es6-destructuring/
+  154  git commit -m 'Completed es6-destructuring'
+  155  git push origin es6-destructuring 
+  156  git checkout es6-template-literals 
+  157  git add es6-template-literals/index.html 
+  158  git commit -m 'Removed one space. v_v'
+  159  git push origin es6-template-literals 
+  160  git checkout es6-destructuring 
+  161  git checkout es6-template-literals 
+  162  git add es6-template-literals/index.html 
+  163  git commit -m 'Concatenation eliminated.'
+  164  git push origin es6-template-literals 
+  165  git checkout es6-destructuring 
+  166  code .
+  167  git add es6-destructuring/index.html 
+  168  git commit -m 'Spelling error'
+  169  git push origin es6-destructuring 
+  170  git checkout master
+  171  git checkout -b 'es6-arrow-functions'
+  172  code .
+  173  git add es6-arrow-functions/
+  174  git commit -m 'Completed es6-arrow-functions'
+  175  git push origin es6-arrow-functions 
+  176  cd
+  177  cd repos
+  178  cd ajax-project/
+  179  code .
+  180  git pull origin
+  181  git pull origin master
+  182  code .
+  183  git add 
+  184  git add .gitignore 
+  185  git add js/
+  186  git add package-lock.json 
+  187  git add package.json 
+  188  git index.html
+  189  git add index.html
+  190  git commit -m 'Stored API Key securely.'
+  191  git push origin master
+  192  git push origin
+  193  git push origin Issue-3-View-Def/Image 
+  194  cd
+  195  cd repos
+  196  cd m2-0621-code-solutions/
+  197  git checkout master
+  198  git checkout -b command-line-basics
+  199  code.
+  200  code .
+  201  git checkout master
+  202  cd command-line-basics/
+  203  pwd
+  204  git checkout command-line-basics 
+  205  man man
+  206  man cat
+  207  cat laziness.txt
+  208  cat impatience.txt
+  209  cat hubris.txt
+  210  man cat
+  211  cat laziness.txt, impatience.txt, hubris.txt
+  212  cat laziness.txt impatience.txt hubris.txt
+  213  cat laziness.txt impatience.txt hubris.txt > three-virtues.txt
+  214  cat three-virtues.txt 
+  215  man ls
+  216  ls
+  217  ls -a
+  218  ls -F
+  219  ls -a -F
+  220  ls -aF lfz-staff > lfz-staff/contents.txt
+  221  cat lfz-staff/contents.txt
+  222  man pwd
+  223  pwd
+  224  pwd > i-was-here.txt
+  225  ls i-was-here.txt 
+  226  cat i-was-here.txt 
+  227  ls
+  228  man echo
+  229  echo 'Hello, World!'
+  230  echo 'Hello, World!' > hello.txt
+  231  ls
+  232  cat hello.txt 
+  233  man touch
+  234  touch tag-youre-it.txt
+  235  touch snoot/ > boop.txt
+  236  ls snoot/
+  237  touch 
+  238  touch boop.txt > snoot/
+  239  touch snoot/
+  240  touch snoot/boop.txt
+  241  ls snoot/
+  242  ls
+  243  man mkdir
+  244  mkdir parent
+  245  ls
+  246  mkdir -p parent/child/grandchild
+  247  ls
+  248  touch parent/child/grandchild/.gitkeep
+  249  ls -a
+  250  ls -a parent/child/grandchild/
+  251  man mv
+  252  man rm
+  253  man mv
+  254* 
+  255  mv pokiemans/ pokemon
+  256  ls
+  257  man rm
+  258  rm lol.txt
+  259  ls
+  260  rm -r kill-me/
+  261  ls
+  262  man cp
+  263  cp and-then.txt no-and-then.txt
+  264  ls
+  265  cat and-then.txt 
+  266  cat no-and-then.txt 
+  267  man cat
+  268  man history
+  269  history
+  270  history > command-history.txt
