@@ -3,8 +3,8 @@ const subtract = require('./subtract');
 const multiply = require('./multiply');
 const divide = require('./divide');
 
-let op = process.argv[3];
-let num1 = parseInt(process.argv[2]), num2 = parseInt(process.argv[4]);
+const op = process.argv[3];
+const num1 = parseInt(process.argv[2]), num2 = parseInt(process.argv[4]);
 let result = 0;
 switch(op) {
   case 'plus':
