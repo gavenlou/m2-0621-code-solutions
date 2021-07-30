@@ -4,7 +4,7 @@ const multiply = require('./multiply');
 const divide = require('./divide');
 
 const op = process.argv[3];
-const num1 = parseInt(process.argv[2]), num2 = parseInt(process.argv[4]);
+const num1 = Number(process.argv[2]), num2 = Number(process.argv[4]);
 let result = 0;
 switch(op) {
   case 'plus':
@@ -20,7 +20,7 @@ switch(op) {
     result = divide(num1, num2);
     break;
   default:
-    console.log('Try using: plus, minus, times, over.');
+    console.log('Use the format: Number operation(eg. plus, minus, times, over) Number. Ex: 2 plus 2');
     break;
 }
 console.log('Result:', result);
