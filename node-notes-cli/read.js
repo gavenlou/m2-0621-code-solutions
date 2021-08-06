@@ -1,7 +1,7 @@
 const fs = require('fs');
 
-const read = () => {
-  fs.readFile('data.json', (err, data) => {
+const read = (file) => {
+  fs.readFile(file, (err, data) => {
     if (err) throw err;
     const noteList = JSON.parse(data).notes;
     for (const [key, value] of Object.entries(noteList)) {

@@ -3,10 +3,11 @@ const add = require('./add');
 const remove = require('./remove');
 const update = require('./update');
 
-let command = process.argv[2];
+const command = process.argv[2];
+const file = 'data.json';
 
-if (command === 'read') read();
-else if (command === 'create') add();
-else if (command === 'delete') remove();
-else if (command === 'update') update();
-else console.log('Invalid argument. Try: read, add, delete, update.');
+if (command === 'read') read(file);
+else if (command === 'create') add(file);
+else if (command === 'delete') remove(file);
+else if (command === 'update') update(file);
+else console.log('Invalid argument. Try: read, create, delete, update.');
