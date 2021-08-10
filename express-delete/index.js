@@ -31,9 +31,7 @@ app.get('/api/grades', (req, res) => {
 });
 
 app.delete('/api/grades/:id', (req, res) => {
-  let gradeID = [];
-  for (prop in grades) gradeID.push(prop);
-  delete grades[gradeID[req.params.id]];
+  delete grades[req.params.id];
   res.sendStatus(204);
 })
 
