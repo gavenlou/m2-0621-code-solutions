@@ -1,5 +1,6 @@
 const express = require('express');
 const data = require('./data');
+const fs = require('fs');
 const app = express();
 
 const parse = express.json();
@@ -27,6 +28,24 @@ app.get('/api/notes/:id/', (req, res) => {
   }
   res.status(200);
   return res.send(data.notes[req.params.id]);
+})
+
+app.post('/api/notes', (req, res) => {
+  if (!req.body.content) {
+    res.status(400);
+    return res.json({ "error": "content is a required field"})
+  }
+  res.status(201);
+  data.notes[data.nextId] = req.body;
+  data.notes[data.nextId].id = data.nextId;
+  data.nextId++;
+  fs.writeFile('data.json', JSON.stringify(data, null, 2) , (err) => {
+    if (err) {
+      return res.json({ "error": "An unexpected error occurred."});
+    }
+    else return res.send(req.body);
+  })
+
 })
 
 app.listen(3000, () => {
