@@ -41,9 +41,34 @@ app.post('/api/notes', (req, res) => {
   data.nextId++;
   fs.writeFile('data.json', JSON.stringify(data, null, 2) , (err) => {
     if (err) {
+      res.status(500);
       return res.json({ "error": "An unexpected error occurred."});
     }
     else return res.send(req.body);
+  })
+})
+
+app.delete('/api/notes/:id', (req, res) => {
+  let reply = [];
+  for (let key in data.notes) { reply.push(key); }
+  if (req.params.id < 0 || isNaN(req.params.id)) {
+    res.status(400);
+    return res.json({ "error": "id must be a positive integer"})
+  }
+  if (!reply.includes(req.params.id)) {
+    res.status(404);
+    return res.json({ "error": "cannot find note with id " + req.params.id})
+  }
+  delete data.notes[req.params.id];
+  fs.writeFile('data.json', JSON.stringify(data, null, 2), (err) => {
+    if (err) {
+      res.status(500);
+      return res.json({ "error": "An unexpected error occurred." });
+    }
+    else {
+      res.status(204);
+      return res.send()
+    }
   })
 
 })
