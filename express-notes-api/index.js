@@ -7,67 +7,64 @@ const parse = express.json();
 app.use(parse);
 
 app.get('/api/notes', (req, res) => {
-  res.status(200);
   let reply = [];
   for (let key in data.notes) {
     reply.push(data.notes[key]);
   }
-  return res.send(reply);
+
+  return res.status(200).send(reply);
 })
 
 app.get('/api/notes/:id/', (req, res) => {
   let reply = [];
-  for (let key in data.notes) {reply.push(key);}
+  for (let key in data.notes) {reply.push(key)};
+
   if (req.params.id < 0 || !Number.isInteger(req.params.id)) {
-    res.status(400)
-    return res.json({"error": "id must be a positive integer."});
+    return res.status(400).json({"error": "id must be a positive integer."});
   }
+
   if (!reply.includes(req.params.id)) {
-    res.status(404);
-    return res.json({ "error": "cannot find note with id " + req.params.id })
+    return res.status(404).json({ "error": "cannot find note with id " + req.params.id })
   }
-  res.status(200);
-  return res.send(data.notes[req.params.id]);
+
+  return res.status(200).send(data.notes[req.params.id]);
 })
 
 app.post('/api/notes', (req, res) => {
   if (!req.body.content) {
-    res.status(400);
-    return res.json({ "error": "content is a required field."})
+    return res.status(400).json({ "error": "content is a required field."})
   }
-  res.status(201);
+
   data.notes[data.nextId] = req.body;
   data.notes[data.nextId].id = data.nextId;
   data.nextId++;
+
   fs.writeFile('data.json', JSON.stringify(data, null, 2) , (err) => {
     if (err) {
-      res.status(500);
-      return res.json({ "error": "An unexpected error occurred."});
-    }
-    else return res.send(req.body);
+      return res.status(500).json({ "error": "An unexpected error occurred."});
+    } else return res.status(201).send(req.body);
   })
 })
 
 app.delete('/api/notes/:id', (req, res) => {
   let reply = [];
   for (let key in data.notes) { reply.push(key); }
+
   if (req.params.id < 0 || !Number.isInteger(req.params.id)) {
-    res.status(400);
-    return res.json({ "error": "id must be a positive integer."});
+    return res.status(400).json({ "error": "id must be a positive integer."});
   }
+
   if (!reply.includes(req.params.id)) {
-    res.status(404);
-    return res.json({ "error": "cannot find note with id " + req.params.id});
+    return res.status(404).json({ "error": "cannot find note with id " + req.params.id});
   }
+
   delete data.notes[req.params.id];
+
   fs.writeFile('data.json', JSON.stringify(data, null, 2), (err) => {
     if (err) {
-      res.status(500);
-      return res.json({ "error": "An unexpected error occurred." });
-    }
-    else {
-      res.status(204);
-      return res.send()
+      return res.status(500).json({ "error": "An unexpected error occurred." });
+    } else {
+      return res.status(204).send()
     }
   })
 })
@@ -75,27 +72,26 @@ app.delete('/api/notes/:id', (req, res) => {
 app.put('/api/notes/:id', (req, res) => {
   let reply = [];
   for (let key in data.notes) { reply.push(key); }
+
   if (req.params.id < 0 || !Number.isInteger(req.params.id)) {
-    res.status(400);
-    return res.json({ "error": "id must be a positive integer." })
+    return res.status(400).json({ "error": "id must be a positive integer." })
   }
+
   if (!req.body.content) {
-    res.status(400);
-    return res.json({ "error": "content is a required field." })
+    return res.status(400).json({ "error": "content is a required field." })
   }
+
   if (!reply.includes(req.params.id)) {
-    res.status(404);
-    return res.json({ "error": "cannot find note with id " + req.params.id });
+    return res.status(404).json({ "error": "cannot find note with id " + req.params.id });
   }
+
   data.notes[req.params.id].content = req.body.content;
+
   fs.writeFile('data.json', JSON.stringify(data, null, 2), (err) => {
     if (err) {
-      res.status(500);
-      return res.json({ "error": "An unexpected error occurred." });
-    }
-    else {
-      res.status(200);
-      return res.json(data.notes[req.params.id]);
+      return res.status(500).json({ "error": "An unexpected error occurred." });
+    } else {
+      return res.status(200).json(data.notes[req.params.id]);
     }
   })
 })
