@@ -18,7 +18,7 @@ app.get('/api/notes', (req, res) => {
 app.get('/api/notes/:id/', (req, res) => {
   let reply = [];
   for (let key in data.notes) {reply.push(key);}
-  if (req.params.id < 0 || isNaN(req.params.id)) {
+  if (req.params.id < 0 || !Number.isInteger(req.params.id)) {
     res.status(400)
     return res.json({"error": "id must be a positive integer."});
   }
@@ -51,7 +51,7 @@ app.post('/api/notes', (req, res) => {
 app.delete('/api/notes/:id', (req, res) => {
   let reply = [];
   for (let key in data.notes) { reply.push(key); }
-  if (req.params.id < 0 || isNaN(req.params.id)) {
+  if (req.params.id < 0 || !Number.isInteger(req.params.id)) {
     res.status(400);
     return res.json({ "error": "id must be a positive integer."});
   }
@@ -75,7 +75,7 @@ app.delete('/api/notes/:id', (req, res) => {
 app.put('/api/notes/:id', (req, res) => {
   let reply = [];
   for (let key in data.notes) { reply.push(key); }
-  if (req.params.id < 0 || isNaN(req.params.id)) {
+  if (req.params.id < 0 || !Number.isInteger(req.params.id)) {
     res.status(400);
     return res.json({ "error": "id must be a positive integer." })
   }
