@@ -150,7 +150,7 @@ app.put('/api/grades/:gradeId', (req, res) => {
 })
 
 app.delete('/api/grades/:gradeId', (req,res) => {
-  const gradeId = Number(req.params.gradeId, 10);
+  const gradeId = Number(req.params.gradeId);
   if (!Number.isInteger(gradeId) || gradeId <= 0) {
     res.status(400).json({
       error: '"gradeId" must be a positive integer'
