@@ -72,8 +72,8 @@ app.get('/api/grades', (req, res) => {
 })
 
 app.post('/api/grades', (req, res) => {
-  const name = req.body.name, course = req.body.course, score = parseInt(req.body.score, 10);
-  if (!name || !score || !course) {
+  const name = req.body.name, course = req.body.course, score = Number(req.body.score);
+  if (!name || !course || (!score && score != 0)) {
     return res.status(400).json({
       error: '"name", "course", and "score" are required fields.'
     })
@@ -103,17 +103,22 @@ app.post('/api/grades', (req, res) => {
 })
 
 app.put('/api/grades/:gradeId', (req, res) => {
-  const gradeId = parseInt(req.params.gradeId, 10);
-  const name = req.body.name, course = req.body.course, score = parseInt(req.body.score, 10);
+  const gradeId = Number(req.params.gradeId);
+  const name = req.body.name, course = req.body.course, score = Number(req.body.score);
   if (!Number.isInteger(gradeId) || gradeId <= 0) {
     res.status(400).json({
       error: '"gradeId" must be a positive integer'
     });
     return;
   }
-  if (!name || !score || !course) {
+  if (!name || (!score && score != 0) || !course) {
     return res.status(400).json({
       error: '"name", "course", and "score" are required fields.'
+    })
+  }
+  if (!Number.isInteger(score) || score < 0 || score > 100) {
+    return res.status(400).json({
+      error: '"score" must be an integer value between 0-100.'
     })
   }
   const sql = `
