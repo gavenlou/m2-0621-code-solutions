@@ -154,19 +154,19 @@ app.delete('/api/grades/:gradeId', (req,res) => {
   }
   const sql = `
     delete from "grades"
-    where "gradeId" = $1;
+    where "gradeId" = $1
+    returning *;
   `;
   const params = [gradeId];
   db.query(sql, params)
     .then(result => {
       const grade = result.rows[0];
-      console.log(grade);
       if (!grade) {
         res.status(404).json({
           error: `Cannot find grade with "gradeId" ${gradeId}`
         });
       } else {
-        res.status(204);
+        return res.status(204).send();
       }
     })
     .catch(err => {
